@@ -34,7 +34,7 @@ const Header = () => {
         </MainHeader>
       </MobileHeader>
       <DesktopHeader>
-        <Row>
+        <DesktopRow>
           <ActionGroup>
             <button>
               <Search size={24} />
@@ -48,14 +48,14 @@ const Header = () => {
             <Button>SUBSCRIBE</Button>
             <LogIn>Already a subscriber?</LogIn>
           </SubscribeOptions>
-        </Row>
+        </DesktopRow>
       </DesktopHeader>
     </header>
   );
 };
 
 const MobileHeader = styled.div`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
@@ -83,7 +83,7 @@ const ActionGroup = styled.div`
     display: block;
   }
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     flex-basis: 145px;
   }
 `;
@@ -94,29 +94,41 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
 `;
 
 const DesktopHeader = styled.div`
   display: none;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: block;
     margin-top: 16px;
-    margin-bottom: 83px;
+    margin-bottom: 81px;
   }
 `;
 
+const DesktopRow = styled(MaxWidthWrapper)`
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto 1fr;
+`;
+
 const SubscribeOptions = styled.div`
-  flex-basis: 145px;
-  align-self: flex-end;
+  justify-self: end;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: end;
   gap: 8px;
 `;
 
 const LogIn = styled.a`
   font-style: italic;
+  font-size: 0.875rem;
   text-decoration: underline;
   color: var(--color-gray-900);
 `;
