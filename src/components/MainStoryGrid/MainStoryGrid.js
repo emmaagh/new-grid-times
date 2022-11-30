@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import { COLORS } from '../../constants';
 
 const MainStoryGrid = () => {
   return (
@@ -66,6 +67,21 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+
+  > * {
+    border-bottom: 1px solid ${COLORS.gray[300]};
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  > *:first-child {
+    padding-top: revert;
+  }
+
+  > *:last-child {
+    border-bottom: none;
+    padding-bottom: revert;
+  }
 `;
 
 const OpinionSection = styled.section`
