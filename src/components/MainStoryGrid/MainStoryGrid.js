@@ -69,18 +69,11 @@ const StoryList = styled.div`
   flex-direction: column;
 
   > * {
-    border-bottom: 1px solid ${COLORS.gray[300]};
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  > *:first-child {
-    padding-top: revert;
-  }
-
-  > *:last-child {
-    border-bottom: none;
-    padding-bottom: revert;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid ${COLORS.gray[300]};
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
   }
 `;
 
